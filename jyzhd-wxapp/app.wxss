@@ -1,0 +1,61 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+
+.flex-wrap{
+	display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.flex-item{
+  flex: auto;
+}
+.flex-wrap.flex-direction-col{
+	flex-direction: column;
+}
+.flex-wrap.flex-direction-row{
+	flex-direction: row;
+}
+
+/*甜甜圈loading start*/
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.donut {
+  display: inline-block;
+  border: 4rpx solid rgba(0, 0, 0, 0.1);
+  border-left-color: #1AAD19;
+  border-radius: 50%;
+  width: 60rpx;
+  height: 60rpx;
+  animation: donut-spin 0.5s linear infinite;
+}
+/*甜甜圈loading end*/
+
+
+/*button*/
+
+.flex-container {
+  margin: 10rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.full-button {
+	width: 50%;
+}
+
+.bg-white {
+	background-color: #ffffff;
+}
+/*button*/

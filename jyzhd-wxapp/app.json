@@ -1,0 +1,52 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/components/dishes/dishes",
+        "pages/components/detail/detail",
+        "pages/logs/logs",
+        "pages/my/my"
+    ],
+    "subpackages": [
+        {
+            "root": "list",
+            "pages": [
+                "pages/list"
+            ]
+        },
+        {
+            "root": "detail",
+            "pages": [
+                "pages/detail"
+            ]
+        }
+    ],
+    "window": {
+        "backgroundColor": "white",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#f5f5ff",
+        "navigationBarTitleText": "皆有杂货店",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "语言",
+                "iconPath": "images/book.png",
+                "selectedIconPath": "images/bookSelected.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/my.png",
+                "selectedIconPath": "images/mySelected.png"
+            }
+        ],
+        "color": "##f5f5f5",
+        "selectedColor": "#1AAD19"
+    },
+    "networkTimeout": {
+        "request": 3000
+    },
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,35 @@
+<!-- <view class="container flex-wrap flex-direction-row" style="height:100%"> -->
+<!-- left aside 左侧分类选择器-->
+<!-- <view class="aside flex-wrap flex-direction-col"><block wx:for="{{navList}}"><text class="type-nav {{curNav == item.id ? 'selected' : ''}}" bindtap="selectNav" data-index="{{index}}"
+				data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text></block></view> -->
+<!-- right aside 右侧列表 -->
+<!-- <view class="content flex-item"><block wx:for="{{dishesList[curIndex]}}"><view class="on_click flex-wrap" data-dish="{{item.id}}"><navigator class=""
+					url="../detail/detail?navName={{item.title}}&&navID={{item.id}}&&navIndex={{curIndex}}&&navII={{index}}"
+					style="width:100%"><view class="click">{{item.title}}</view></navigator></view></block></view> -->
+<!-- </view> -->
+<!-- <loading hidden="{{hidden}}">玩命加载中…</loading> -->
+<view class='container'>
+    <block class="" wx:for="{{dishesList[curIndex]}}" wx:key="id">
+        <navigator url='../detail/detail?navName={{item.title}}&&navID={{item.id}}&&navIndex={{curIndex}}&&navII={{index}}'>
+            <view hover-class='hover-class' id="1" style='display:flex; height:120rpx;border-bottom: 1px solid #DBDBDB'>
+                <!--左边图片-->
+                <view style='width:100%; height:100%; margin:10rpx;'>
+                    <image style='width:128rpx; height:100rpx' src="{{pic}}"></image>
+                </view>
+                <!-- 右边内容 上下结构 -->
+                <view style='display:flex; flex-direction:column; margin:10rpx;'>
+                    <view class='item_title'>{{item.title}}</view>
+                    <!-- 右边底部内容 左右结构 -->
+                    <view style='display:flex; flex-direction:row; height:30rpx; width:500rpx; margin-top:25rpx; '>
+                        <view> created_at </view>
+                        <view style='display:flex; flex-direction:row;'>
+                            <view>like</view>
+                            <image style='width:80rpx; height:40rpx' src="http://px1t7hoiz.bkt.clouddn.com/read_90.png"></image>
+                        </view>
+                        <view> read </view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </block>
+</view>

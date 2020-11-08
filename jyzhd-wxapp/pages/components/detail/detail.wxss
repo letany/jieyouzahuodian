@@ -1,0 +1,132 @@
+@import "../../../wxParse/wxParse.wxss";
+/**基础风格样式**/
+@import '/towxml/style/main.wxss';
+
+/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
+
+/**主题配色（浅色样式）**/
+@import '/towxml/style/theme/light.wxss';
+
+/**主题配色（深色样式）**/
+@import '/towxml/style/theme/dark.wxss';
+
+page{
+  padding:10rpx;
+  /* margin: 10rpx; */
+  width: 730rpx;
+}
+
+.comment-container {
+	display: flex;
+	flex-direction: column;
+	padding: 20rpx 0;
+	margin-top: 200rpx;
+}
+
+.comment-area {
+	margin-top: 20rpx;
+	padding: 20rpx 30rpx;
+  border: solid 1px rgb(230, 226, 226);
+  justify-content: center;
+}
+
+.comment-commit {
+  margin: 10rpx;
+}
+.comment-commit-content {
+  border: solid 1px rgb(230, 226, 226);
+  margin: 10rpx;
+  margin-right: 10px;
+}
+
+.comment-container {
+	padding-top: 30rpx;
+}
+
+.comment-title {
+	/*border: 1px solid black;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* margin-bottom: 30rpx; */
+}
+.comment-title > text {
+	font-size: 20rpx;
+	color: #cdcdcd;
+}
+
+.comment-placeholder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: #dcdcdc;
+}
+.comment-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 20rpx;
+}
+
+.comment-item:last-child {
+	margin-bottom: 30rpx;
+}
+
+.avatar-container {
+	width: 50rpx;
+	height: 50rpx;
+	margin-right: 20rpx;
+}
+
+.user-avatar {
+	width: 80rpx;
+	height: 80rpx;
+
+	/*border: 1px solid red;*/
+
+}
+
+.comment-content {
+	display: flex;
+	max-width: 590rpx;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+  margin-bottom:20px; 
+}
+
+.user-name {
+	color: #e4dede;
+	font-size: 20rpx;
+}
+
+.user-comment {
+	display: inline-block;
+	margin-top: 10rpx;
+	color: #1e1e1e;
+	font-size: 25rpx;
+}
+
+.comment-time {
+	display: inline-block;
+	margin-top: 10rpx;
+	color: #cdcdcd;
+	font-size: 20rpx;
+}
+
+.comment-loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading-container {
+	width: 250rpx;
+	color: #cdcdcd;
+	margin-top: 30rpx;
+}
+.wxParse-h1 {
+  margin-left:20rpx; 
+}
