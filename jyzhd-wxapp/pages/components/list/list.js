@@ -28,10 +28,9 @@ Page({
                 name: '建议'
             }
         ],
-        dishesList: [
+        ListArr: [
             []
         ],
-        dishes: [],
         pic: '',
         pageNo: 1,
         pageSize: 10,
@@ -53,13 +52,8 @@ Page({
         app.globalData.tablename = options.navTable;
         // 把传进来的图片地址 给列表也使用
         that.setData({
-            pic: options.navPic
+            pic: `../${options.navPic}`
         })
-        console.log("now in ", options.navTable)
-
-        // that.loadingChange();
-        // that.getByCategory(options.navTable, that.data.curName);
-
         that.getAllLanguage();
     },
 
@@ -76,7 +70,6 @@ Page({
     selectNav: function (event) {
         let that = this;
         let id = event.currentTarget.dataset.id;
-        // let index = parseInt(event.currentTarget.dataset.index);
         let name = event.currentTarget.dataset.name;
 
         that.setData({
@@ -84,24 +77,17 @@ Page({
             curName: name,
             curIndex: id
         });
-
-        // that.getByCategory(app.globalData.tablename, name);
-
-
     },
 
     // 获取C语言列表
     getC: function () {
         let that = this;
-
         app.getC(function (res) {
-
             that.setData({
-                dishesList: [
+                ListArr: [
                     res.data
                 ]
             })
-
         });
     },
 
@@ -137,7 +123,7 @@ Page({
             // console.log("arr = ", arr);
 
             that.setData({
-                dishesList: arr
+                ListArr: arr
             })
 
         });
@@ -153,7 +139,6 @@ Page({
         let arr = [];
 
         app.getByCategory(tablename, category, function (res) {
-
             for (var item of res.data) {
                 if (item.category == that.data.navList[0].name) {
                     arr1.push(item);
@@ -166,14 +151,9 @@ Page({
                 }
             }
             arr.push(arr1, arr2, arr3, arr4);
-
-
-            console.log("arr = ", arr)
-
             that.setData({
-                dishesList: arr
+                ListArr: arr
             })
-
         });
     },
 
@@ -183,17 +163,13 @@ Page({
         })
     },
 
-
     // 下拉刷新
     onPullDownRefresh: function () {
         let that = this;
-
     },
 
     // 页面上拉触底事件（上拉加载更多）
     onReachBottom: function () {
         let that = this;
-
     }
-
 })

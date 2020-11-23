@@ -2,7 +2,6 @@ const $sqlQuery = require('./sqlCRUD').c;
 const _ = require('./query');
 
 const c = {
-    
     getContentById: function (id) {
         return _.query($sqlQuery.queryById, [id]);
     },
@@ -14,6 +13,5 @@ const c = {
             return _.query($sqlQuery.queryById, [id]);
         }
     }
-
 };
 module.exports = c;

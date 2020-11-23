@@ -1,60 +1,49 @@
 <view>
-  <!-- 显示知识的内容 -->
-  <!-- <view>
+	<!-- 显示知识的内容 -->
+	<!-- <view>
     <import src="../../../wxParse/wxParse.wxml"/>
     <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
   </view> -->
 
-  <view>
-	<import src="/towxml/entry.wxml"/>
-	<template is="entry" data="{{...article}}"/>
-  </view>
+	<view>
+		<import src="/towxml/entry.wxml" />
+		<template is="entry" data="{{...article}}" />
+	</view>
 
-  <!-- 显示评论 -->
-  <view class="comment-container">
-
+	<!-- 显示评论 -->
+	<view class="comment-container">
 		<view class="comment-title">
 			<text>---------共 {{commentList.length}} 条评论 ---------</text>
 		</view>
-
 		<view class="comment-loading" wx:if="{{commentLoading}}">
-
 			<view class="donut"></view>
-      
 		</view>
-
 		<view class="comment-area" wx:else>
-			
 			<block wx:if="{{commentList.length > 0}}">
 				<view class="comment-item" wx:for="{{commentList}}" wx:key="index">
-
 					<view class="avatar-container">
 						<image mode="aspectFit" src="{{item.uavatar}}" class="user-avatar"></image>
 					</view>
-
 					<view class="comment-content">
-						<text class="user-name">{{item.uname}}  {{item.created_at}}</text>
+						<text class="user-name">{{item.uname}} {{item.created_at}}</text>
 						<text class="user-comment">{{item.ccontent}}</text>
 					</view>
-
 				</view>
 			</block>
-
 			<block wx:else>
 				<view class="comment-placeholder">来当第一个评论的人吧～</view>
 			</block>
-			
 		</view>
 	</view>
-  <!-- comment area -->
+	<!-- comment area -->
 	<view class="comment-area bg-white">
 		<textarea placeholder="对本文的看法..." maxlength="200" value="{{comment}}" bindinput="inputComment" style="width:100%"></textarea>
 	</view>
 
-  <!-- bottom button 提交评论 -->
+	<!-- bottom button 提交评论 -->
 	<form report-submit bindsubmit="submitComment">
-    <view class="flex-container bg-white">
-        <button class="full-button" type="primary" form-type="submit" size="mini"> 提交评论 </button>
-    </view>
-  </form>
+		<view class="flex-container bg-white">
+			<button class="full-button" type="primary" form-type="submit" size="mini"> 提交评论 </button>
+		</view>
+	</form>
 </view>

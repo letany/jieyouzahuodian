@@ -10,8 +10,7 @@ Page({
             '../../images/soyoung.png',
             'http://image.wufazhuce.com/FobG0-eXUBeF_TtQMLlDZmoF4MEP',
             'http://image.wufazhuce.com/FoRlKOVqzx0nLTlGV29sdOLhFDdA',
-            'http://px1t7hoiz.bkt.clouddn.com/LeopardNamibia_ZH-CN9585068449_1920x1080.jpg',
-            'http://px1t7hoiz.bkt.clouddn.com/aLeopardNamibia.jpg'
+            '../../images/LeopardNamibia.jpg'
         ],
         indicatorDots: true,
         autoplay: true,
@@ -22,49 +21,42 @@ Page({
             {
                 name: 'C',
                 tablename: 'c',
-                url: 'dishes',
-                pic: 'http://px1t7hoiz.bkt.clouddn.com/c-mini-logo.png'
+                url: 'list',
+                pic: '../../images/c-mini-logo.png'
 
             },
             {
                 name: 'Go',
                 tablename: 'go',
-                url: 'dishes',
+                url: 'list',
                 isSplot: true,
-                pic: 'http://px1t7hoiz.bkt.clouddn.com/go128.png'
+                pic: '../../images/go128.png'
             },
             {
                 name: 'C++',
                 tablename: 'cpp',
-                url: 'dishes',
-                pic: 'http://px1t7hoiz.bkt.clouddn.com/cpp-mini-logo.png'
+                url: 'list',
+                pic: '../../images/cpp-mini-logo.png'
             },
             {
                 name: 'MySQL',
                 tablename: 'mysql',
-                url: 'dishes',
-                pic: 'http://px1t7hoiz.bkt.clouddn.com/mysql.jpg'
+                url: 'list',
+                pic: '../../images/mysql.jpg'
             },
             {
                 name: 'Linux',
                 tablename: 'linux',
-                url: 'dishes',
+                url: 'list',
                 isSplot: true,
-                pic: 'http://px1t7hoiz.bkt.clouddn.com/OS_Linux_256px.png'
+                pic: '../../images/OS_Linux_256px.png'
             },
             {
                 name: 'Python',
-                url: 'dishes',
+                url: 'list',
                 tablename: 'python',
-                pic: 'http://px1t7hoiz.bkt.clouddn.com/python.jpg'
+                pic: '../../images/python_256px.png'
             }
         ]
-    },
-
-    /**
-     * 生命周期函数 -- 监听页面加载
-     */
-    onLoad: function () {
-
     }
 })

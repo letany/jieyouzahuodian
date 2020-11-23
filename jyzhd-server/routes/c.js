@@ -8,16 +8,13 @@ const router    = express.Router();
  */
 router.get('/', function (req, res, next) {
     const reqType = req.query.id;
-    
     if(reqType === undefined) {
-
         res.json({
             result: -1,
             errmsg: '缺少请求参数id字段，请检查后重试'
         });
         return;
     }
-
     if(parseInt(reqType) === 1) {
         c.getCById(req, res, next);
     } else {
@@ -31,7 +28,6 @@ router.get('/', function (req, res, next) {
  */
 router.get('/getC', function (req, res, next) {
     const reqType = req.query.is_all;
-    
     if(reqType === undefined) {
         res.json({
             result: -1,
@@ -39,7 +35,6 @@ router.get('/getC', function (req, res, next) {
         });
         return;
     }
-
     if(parseInt(reqType) === 1) {   // 获取
         c.getAllC(req, res, next);
     } else {

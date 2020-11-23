@@ -15,11 +15,9 @@ let access_token = '';
  * @param   {*定时器间隔} time 
  */
 function refreshAccessToken(fn, time) {
-  
     const refreshToken = function() {
        fn(refreshToken);
     }
-  
     timer = setTimeout(refreshToken, time);
 }
 
@@ -47,13 +45,11 @@ function getAccessToken(cb) {
 
     http(opt)
     .then(function(response) {
-        console.log(response,'调用接口返回数据');
         if(response && response.data && response.data.access_token) {
             // 拿到access_token，存表
             const resData = response.data;
             access_token = resData.access_token;
             expires = resData.expires_in || 0;
-
             return _.query('select count(*) as count from access');
         }
     })

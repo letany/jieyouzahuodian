@@ -19,12 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
-// use的功能：将第一个参数
-app.use('/login',       authorizeMiddleware, loginRouter);
+app.use('/login', authorizeMiddleware, loginRouter);
 app.use('/api/comment', commentRouter);
-app.use('/api/c',       cRouter);
-app.use('/api/get',     getRouter);
+app.use('/api/c', cRouter);
+app.use('/api/get', getRouter);
 
 // catch 404 and forward to error handler
 

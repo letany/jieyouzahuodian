@@ -1,9 +1,7 @@
 const c    = require('../dao/c');
 
 module.exports = {
-    /**
-     * 根据bookid获取当前书籍信息
-     */
+    
     getCById: function(req, res, next) {
         const id = req.query.id;
         if(!id) {

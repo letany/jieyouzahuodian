@@ -8,11 +8,9 @@ const { saveUserInfo } = require('../controllers/users');
  */
 function authorizeMiddleware(req, res, next) {
     return authMiddleware(req).then(function(result) {
-
         // 将结果存入响应信息的'auth_data'字段
         res['auth_data'] = result;
         return next();
-
     })
 }
 
@@ -42,12 +40,10 @@ function authMiddleware (req) {
             // 选择加密算法生成自己的登录态标识
             const { session_key } = resData;
             const skey = encryptSha1(session_key);
-
             let decryptedData = JSON.parse(decryptByAES(encryptedData, session_key, iv));
             console.log('-------------decryptedData---------------');
             console.log(decryptedData);
             console.log('-------------decryptedData---------------');
-            
             // 存入用户数据表中
             return saveUserInfo({
                 userInfo: decryptedData,
@@ -70,7 +66,6 @@ function authMiddleware (req) {
  * @param {*小程序密钥} appSecret 
  */
 function getSessionKey (code, appid, appSecret) {
-    
     const opt = {
         method: 'GET',
         url: 'https://api.weixin.qq.com/sns/jscode2session',
@@ -84,7 +79,6 @@ function getSessionKey (code, appid, appSecret) {
    
     return http(opt).then(function (response) {
         const data = response.data;
-        
         if (!data.openid || !data.session_key || data.errcode) {
             return {
                 result: -2,
@@ -93,7 +87,6 @@ function getSessionKey (code, appid, appSecret) {
         } else {
             return data
         }
-        
     });
 }
 module.exports = {

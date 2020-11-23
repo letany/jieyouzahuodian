@@ -36,7 +36,6 @@ const thirdBaseUrl     = "https://crm.chengfayun.com/api/v1.0"
 const accountUrl       = thirdBaseUrl + '/one/Account/query';
 
 module.exports = {
-
     commentUrl        : commentUrl,
     loginUrl          : loginUrl,
     ckUrl             : ckUrl,
@@ -47,5 +46,4 @@ module.exports = {
     getByID           : getByID,
     getAllLanguage    : getAllLanguage,
     getByCategory     : getByCategory
-
 };

@@ -1,24 +1,10 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/components/dishes/dishes",
+        "pages/components/list/list",
         "pages/components/detail/detail",
         "pages/logs/logs",
         "pages/my/my"
-    ],
-    "subpackages": [
-        {
-            "root": "list",
-            "pages": [
-                "pages/list"
-            ]
-        },
-        {
-            "root": "detail",
-            "pages": [
-                "pages/detail"
-            ]
-        }
     ],
     "window": {
         "backgroundColor": "white",

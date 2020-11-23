@@ -46,7 +46,6 @@ App({
                         that.showInfo('缓存信息缺失');
                         console.error('登录成功后将用户信息存在Storage的userStorageInfo字段中，该字段丢失');
                     }
-
                 },
                 // session_key 过期
                 fail: function () {
@@ -64,10 +63,8 @@ App({
     // 登录动作
     doLogin: function (callback = () => { }) {
         let that = this;
-        console.log("dologin")
         wx.login({
             success: function (loginRes) {
-                console.log("success login", "<<<", loginRes)
                 if (loginRes.code) {
                     /* 
                      * @desc: 获取用户信息 期望数据如下 
@@ -79,20 +76,16 @@ App({
                      * @param: iv             [String]
                      **/
                     wx.getUserInfo({
-
                         withCredentials: true, // 非必填, 默认为true
-
                         success: function (infoRes) {
                             console.log(infoRes, '>>>getuserinfo')
                             // 请求服务端的登录接口
                             wx.request({
                                 url: api.loginUrl,
-
                                 header: {
                                     'content-type': 'application/x-www-form-urlencoded',
                                     'cache-control': 'no-cache',
                                 },
-
                                 data: {
                                     code: loginRes.code,                    // 临时登录凭证
                                     rawData: infoRes.rawData,               // 用户非敏感信息
@@ -100,7 +93,6 @@ App({
                                     encryptedData: infoRes.encryptedData,   // 用户敏感信息
                                     iv: infoRes.iv                          // 解密算法的向量
                                 },
-
                                 success: function (res) {
                                     console.log('请求服务端程序成功');
                                     res = res.data;
@@ -116,7 +108,6 @@ App({
                                         that.showInfo(res.errmsg);
                                     }
                                 },
-
                                 fail: function (error) {
                                     // 调用服务端登录接口失败
                                     that.showInfo('调用接口失败');
@@ -124,7 +115,6 @@ App({
                                 }
                             });
                         },
-
                         fail: function (error) {
                             // 获取 userInfo 失败，去检查是否未开启权限
                             wx.hideLoading();
@@ -276,7 +266,6 @@ App({
                 'cache-control': 'no-cache',
             },
 
-
             data: {
                 is_all: 1,
                 tablename: tablename,
@@ -285,11 +274,8 @@ App({
             },
 
             success: function (res) {
-
                 res = res.data;
-                // console.log("url", api.getAllLanguage)
                 callback(res);
-
             },
 
             fail: function (error) {
@@ -306,23 +292,19 @@ App({
         // 请求服务端的登录接口
         wx.request({
             url: api.getByID,
-
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'cache-control': 'no-cache',
             },
-
             data: {
                 is_all: 0,
                 tablename: tablename,
                 id: id
             },
-
             success: function (res) {
                 res = res.data;
                 callback(res);
             },
-
             fail: function (error) {
                 // 调用服务端登录接口失败
                 that.showInfo('调用接口失败');
@@ -337,22 +319,18 @@ App({
         // 请求服务端的登录接口
         wx.request({
             url: api.getByCategory,
-
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'cache-control': 'no-cache',
             },
-
             data: {
                 tablename: tablename,
                 category: category
             },
-
             success: function (res) {
                 res = res.data;
                 callback(res);
             },
-
             fail: function (error) {
                 // 调用服务端登录接口失败
                 that.showInfo('调用接口失败');
@@ -366,24 +344,19 @@ App({
         let that = this;
         // 请求服务端的登录接口
         wx.request({
-
             url: api.getByID,
-
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'cache-control': 'no-cache',
             },
-
             data: {
                 tablename: tablename,
                 id: id
             },
-
             success: function (res) {
                 res = res.data;
                 callback(res);
             },
-
             fail: function (error) {
                 // 调用服务端登录接口失败
                 that.showInfo('调用接口失败');

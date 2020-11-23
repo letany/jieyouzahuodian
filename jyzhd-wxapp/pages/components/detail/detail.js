@@ -4,7 +4,6 @@ const api = require('../../../config/config.js');
 var app = getApp()
 
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -23,26 +22,17 @@ Page({
         let that = this;
         let _i = options.navIndex;
         let _ii = options.navII;
-        // console.log("_i = ", _i);
-        // console.log("_ii = ", _ii);
-
         let con = wx.getStorageSync('content');
         let cont = JSON.parse(con)
-        console.log("con0= ", cont[_i][_ii].content);
-
         // WxParse.wxParse('article', 'html', cont[_i][_ii].content, that, 5);
-
         let article = app.towxml.toJson(
             cont[_i][_ii].content,               // `markdown`或`html`文本内容
             'html'              // `markdown`或`html`
         );
-        
         that.setData({
             article: article
         })
-
         app.globalData.recordid = options.navID;
-
         // that.getByID(app.globalData.tablename, options.navID, (content) => {
         /**
         * WxParse.wxParse(bindName, type, data, target, imagePadding)
@@ -56,17 +46,13 @@ Page({
         // WxParse.wxParse('article', 'md', content, that, 5);
         // })
 
-
         // that.getCByID(options.navID, (content) => {
         //   WxParse.wxParse('article', 'md', content, that, 5);
         // })
-
         wx.setNavigationBarTitle({
             title: options.navName
         })
-
         that.getPageData();
-
     },
 
     /**
@@ -133,56 +119,32 @@ Page({
      * 提交评论内容
      */
     submitComment: function (ev) {
-
         let that = this;
-
-        console.log("ev=", ev);
-
         let formId = ev.detail.formId;
-
         if (that.checkUserInput()) {
-
-            console.log('submit!');
-
             let requestData = {
-
                 skey: app.getLoginFlag(),
-
                 content: that.data.comment,
-
                 tablename: app.globalData.tablename,
-
                 crecordid: app.globalData.recordid
-
             };
 
             wx.request({
-
                 url: api.commentUrl,
-
                 method: 'POST',
-
                 data: requestData,
-
                 success: function (res) {
                     // 接口返回成功
-
                     if (res.data.result == 0) {
-
                         that.showInfo('评论成功', 'success', function () {
-
                             that.getPageData();
-
                             wx.setStorageSync('isFromBack', '1');
-
                         });
                     } else {
                         console.log("res.data", res.data);
                         that.showInfo(res.data.errmsg);
                     }
-
                 },
-
                 fail: function (error) {
                     that.showInfo('请求失败');
                 }
@@ -205,30 +167,21 @@ Page({
 
     // 获取评论列表
     getPageData: function () {
-
         let that = this;
-
         let requestData = {
             ctablename: app.globalData.tablename,
             crecordid: app.globalData.recordid
         };
-
         wx.request({
-
             url: api.getcommentUrl,
-
             method: 'GET',
-
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'cache-control': 'no-cache',
             },
-
             data: requestData,
-
             success: function (res) {
                 if (res.data.result === 0) {
-
                     that.setData({
                         commentList: res.data.data || [],
                         comment: '',
@@ -249,9 +202,7 @@ Page({
     getCByID: function (record_id, callback) {
         let that = this;
         app.getCByID(record_id, function (res) {
-
             callback(res.data[0].content)
-
         });
     },
 
@@ -259,10 +210,7 @@ Page({
     getByID: function (tablename, record_id, callback) {
         let that = this;
         app.getByID(tablename, record_id, function (res) {
-
             callback(res.data[0].content)
-
         });
     }
-
 })

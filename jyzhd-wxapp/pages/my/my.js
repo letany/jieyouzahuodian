@@ -7,35 +7,29 @@ Page({
     data: {
         userInfo: {},   // 用户信息
         hasLogin: wx.getStorageSync('loginFlag')
-            ? true 
+            ? true
             : false     // 是否登录，根据后台返回的skey判断
     },
 
     // 检查本地 storage 中是否有skey登录态标识
-    checkLoginStatus: function() {
-        
+    checkLoginStatus: function () {
         let that = this;
-        
         let loginFlag = wx.getStorageSync('loginFlag');
-
         if (loginFlag) {
             // 检查 session_key 是否过期
             wx.checkSession({
-                
                 // session_key 有效(未过期)
-                success: function() {
+                success: function () {
                     // 获取用户头像/昵称等信息
                     that.getUserInfo();
                 },
-
                 // session_key 已过期
-                fail: function() {
+                fail: function () {
                     that.setData({
                         hasLogin: false
                     });
                 }
             });
-
         } else {
             that.setData({
                 hasLogin: false
@@ -46,7 +40,7 @@ Page({
     /**
      * 执行登录操作
      */
-    doLogin: function() {
+    doLogin: function () {
         let that = this;
         wx.showLoading({
             title: '登录中',
@@ -58,13 +52,9 @@ Page({
     /**
      * 从 globalData 中获取 userInfo
      */
-    getUserInfo: function() {
+    getUserInfo: function () {
         let that = this;
-
         let userInfo = app.globalData.userInfo;
-
-        console.info('userInfo is:', userInfo);
-
         if (userInfo) {
             that.setData({
                 hasLogin: true,
@@ -76,15 +66,21 @@ Page({
         }
     },
 
-    onLoad: function() {
-      let that = this;
-      that.checkLoginStatus();
+    onLoad: function () {
+        let that = this;
+        that.checkLoginStatus();
     },
 
-    onShow: function() {
+    onShow: function () {
         let that = this;
         that.setData({
             userInfo: app.globalData.userInfo
         });
+    },
+
+    display_logs: function(){
+        wx.navigateTo({
+          url: '/pages/logs/logs',
+        })
     }
 })

@@ -1,38 +1,36 @@
 /**index.wxss**/
-.my-swiper image{
-  width: 100%;
-  height: 100%;
+.my-swiper image {
+    width: 100%;
+    height: 100%;
 }
 
-.my-swiper swiper{
-  height: 450rpx;
+.my-swiper swiper {
+    height: 450rpx;
 }
 
-.wrap{
-	display: inline-block;
-	margin-top: .8rem;
+.wrap {
+    display: inline-block;
+    margin-top: .8rem;
 }
-.wrap-item{
-	display: inline-block;
-	width: 33%;
-	height: 6rem;
-	line-height: 6rem;
-	border-bottom: 1px solid #ddd;
-	background-color: #fff;
-	text-align: center;
-  /* background-image: url(https://www.runoob.com/wp-content/uploads/2014/03/mysql.jpg);
-  background-position: center;
-  background-size: 50%;
-  background-repeat: no-repeat; */
+
+.wrap-item {
+    display: inline-block;
+    width: 33%;
+    height: 6rem;
+    line-height: 6rem;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    text-align: center;
 }
-.wrap-item image{
-  margin-top: 0.75em;
-  /* background-color: red; */
-  height: 4.5em;
-  width: 187.5rpx;
+
+.wrap-item image {
+    margin-top: 0.75em;
+    height: 4.5em;
+    width: 187.5rpx;
 }
- /*不支持 :nth-child(2);*/
-.wrap-item.exp{
-	border: 1px solid #ddd;
-	border-top: 0;
+
+/*不支持 :nth-child(2);*/
+.wrap-item.exp {
+    border: 1px solid #ddd;
+    border-top: 0;
 }

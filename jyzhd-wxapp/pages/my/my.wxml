@@ -1,25 +1,17 @@
-<!--index.wxml-->
 <view class="user-container bg-white">
-    
     <view class="userinfo">
-        
         <block wx:if="{{!hasLogin}}">
             <button type="primary" open-type="getUserInfo" bindgetuserinfo="doLogin">点击登录</button>
-            <!-- <image class="userinfo-avatar" src="../../images/login.png" background-size="cover" catchtap="doLogin"></image>
-            <text class="userinfo-nickname">点击登录</text> -->
         </block>
-        
         <block wx:else>
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>
             <button type="primary" open-type="getUserInfo" bindgetuserinfo="doLogin">重新登录</button>
         </block>
 
-
-        <block>
-        <!-- <button type="primary" open-type="getUserInfo" bindgetuserinfo="doLogin">dologin</button> -->
-        </block>
-
+    </view>
+    <view>
+        <button bindtap="display_logs">display logs</button>
     </view>
 
 </view>

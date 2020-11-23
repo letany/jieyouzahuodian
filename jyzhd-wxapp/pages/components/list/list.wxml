@@ -1,0 +1,25 @@
+<view class='container'>
+	<block class="" wx:for="{{ListArr[curIndex]}}" wx:key="id">
+		<navigator url='../detail/detail?navName={{item.title}}&&navID={{item.id}}&&navIndex={{curIndex}}&&navII={{index}}'>
+			<view hover-class='hover-class' id="1" style='display:flex; height:120rpx;border-bottom: 1px solid #DBDBDB'>
+				<!--左边图片-->
+				<view style='margin:10rpx;'>
+					<image style='width:128rpx; height:100rpx' src="{{pic}}"></image>
+				</view>
+				<!-- 右边内容 上下结构 -->
+				<view style='display:flex; flex-direction:column; margin:10rpx;'>
+					<view class='item_title'>{{item.title}}</view>
+					<!-- 右边底部内容 左右结构 -->
+					<view style='display:flex; flex-direction:row; height:30rpx; width:500rpx; margin-top:25rpx; '>
+						<image style='width:40rpx; height:40rpx' src="../../../images/star_90.png"></image>
+						<view> {{created_at}} </view>
+						<image style='width:40rpx; height:40rpx' src="../../../images/like_90.png"></image>
+						<view> {{like_count}} </view>
+						<image style='width:40rpx; height:40rpx' src="../../../images/read_90.png"></image>
+						<view> {{read_count}} </view>
+					</view>
+				</view>
+			</view>
+		</navigator>
+	</block>
+</view>
